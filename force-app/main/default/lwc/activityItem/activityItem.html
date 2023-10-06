@@ -1,0 +1,165 @@
+<template>
+	<li>
+        <!-- 
+        type: {type}
+        <br /> typeField: {typeField}
+        <br /> subType: {subType}
+        <br /> icon: {icon}  
+        <br />{itemWrapperClass}
+    -->
+		<div class={itemWrapperClass}>
+			<span class="slds-assistive-text">{sobType}</span>
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<lightning-button-icon 
+                        icon-name={expandedIcon} 
+                        size="small"    
+                        variant="bare"
+                        alternative-text="View More" 
+                        class="slds-m-left_xx-small"
+                        onclick={handleExpandBtnClick}
+                    ></lightning-button-icon>
+					<!-- <div
+						class="slds-icon_container slds-icon-standard-task slds-timeline__icon"
+						title="task"
+					> -->
+                        <lightning-icon 
+                            icon-name={icon} 
+                            alternative-text={subType}
+                            title={subType}
+                            size="small"
+                        ></lightning-icon>
+					<!-- </div> -->
+				</div>
+				<div class="slds-media__body">
+					<div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+						<div
+							class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space"
+						>
+							<!-- <div class="slds-checkbox">
+								<input
+									type="checkbox"
+									name="options"
+									id="checkbox-unique-id-18"
+									value="checkbox-unique-id-18"
+								/>
+								<label class="slds-checkbox__label" for="checkbox-unique-id-18">
+									<span class="slds-checkbox_faux"></span>
+									<span class="slds-form-element__label slds-assistive-text"
+										>Mark Review proposals for EBC deck with larger team and
+										have marketing review this complete</span
+									>
+								</label>
+							</div> -->
+							<h3
+								class="slds-truncate"
+								title={subject}
+							>
+								<a href="#">
+									<strong>
+                                        {subject}
+                                    </strong>
+								</a>
+							</h3>
+							<!-- <div class="slds-no-flex">
+								<span
+									class="slds-icon_container slds-icon-utility-rotate"
+									title="Recurring Task"
+								>
+									<svg
+										class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
+										aria-hidden="true"
+									>
+										<use
+											xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#rotate"
+										></use>
+									</svg>
+									<span class="slds-assistive-text">Recurring Task</span>
+								</span>
+							</div> -->
+						</div>
+						<div class="slds-timeline__actions slds-timeline__actions_inline">
+							<p class="slds-timeline__date">
+                                <lightning-formatted-date-time 
+                                    value={dateString} 
+                                    year="numeric" 
+                                    month="numeric" 
+                                    day="numeric" 
+                                    hour="2-digit"
+                                    minute="2-digit" 
+                                    time-zone-name="short"
+                                ></lightning-formatted-date-time>
+                            </p>
+							<!-- <button
+								class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
+								aria-haspopup="true"
+								title="More Options for this item"
+							>
+								<svg class="slds-button__icon" aria-hidden="true">
+									<use
+										xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"
+									></use>
+								</svg>
+								<span class="slds-assistive-text"
+									>More Options for this item</span
+								>
+							</button> -->
+						</div>
+					</div>
+					<!-- <p class="slds-m-horizontal_xx-small">
+						<a href="#">You</a> created a task with
+						<a href="#">Charlie Gomez</a>
+					</p> -->
+
+                    <template lwc:if={expanded}>
+                        <div class="slds-box">
+                            <span class="slds-text-title">Description</span>
+                            <p class="slds-p-top_x-small">
+                                {description}
+                            </p>
+                        </div>
+
+                        <div
+                            class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small"
+                        >
+                            <!-- <ul class="slds-list_horizontal slds-wrap">
+                                <li
+                                    class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small"
+                                >
+                                    <span class="slds-text-title slds-p-bottom_x-small">Name</span>
+                                    <span
+                                        class="slds-text-body_medium slds-truncate"
+                                        title="Charlie Gomez"
+                                    >
+                                        <a href="#">Charlie Gomez</a>
+                                    </span>
+                                </li>
+                                <li
+                                    class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small"
+                                >
+                                    <span class="slds-text-title slds-p-bottom_x-small"
+                                        >Related To</span
+                                    >
+                                    <span
+                                        class="slds-text-body_medium slds-truncate"
+                                        title="Tesla Cloudhub + Anypoint Connectors"
+                                    >
+                                        <a href="#">Tesla Cloudhub + Anypoint Connectors</a>
+                                    </span>
+                                </li>
+                            </ul> -->
+                            <!-- <div>
+                                <span class="slds-text-title">Description</span>
+                                <p class="slds-p-top_x-small">
+                                    {description}
+                                </p>
+                            </div> -->
+                        </div>
+
+                    </template>
+
+				</div>
+			</div>
+		</div>
+	</li>
+</template>

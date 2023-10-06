@@ -1,0 +1,20 @@
+<template>
+	<template lwc:if={isLoading}>
+        <lightning-dynamic-icon
+            type="eq"
+            option="play"
+            alternative-text="Fetching Data">
+        </lightning-dynamic-icon>
+    </template>
+
+	<ul class="slds-timeline">
+
+        <template for:each={items} for:item="item">
+            <c-activity-item
+                key={item.Id}
+                item={item}
+            ></c-activity-item>
+        </template>
+		
+	</ul>
+</template>
